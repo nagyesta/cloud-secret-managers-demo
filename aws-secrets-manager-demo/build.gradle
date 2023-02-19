@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.8'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'com.avast.gradle.docker-compose' version '0.16.11'
+}
+
+group = 'com.github.nagyesta.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'com.amazonaws:aws-java-sdk-secretsmanager'
+    implementation 'org.apache.commons:commons-dbcp2'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+    dependencies {
+        dependency 'com.amazonaws:aws-java-sdk-secretsmanager:1.12.408'
+        dependency 'org.apache.commons:commons-dbcp2:2.9.0'
+        dependency 'com.mysql:mysql-connector-j:8.0.32'
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+dockerCompose {
+    useComposeFiles = ['docker-compose.yml']
+    forceRecreate = true
+    waitForTcpPorts = true
+    retainContainersOnStartupFailure = false
+    captureContainersOutput = false
+
+    projectName = 'aws-demo'
+    dockerComposeWorkingDirectory = project.file("${projectDir}/local")
+}
+
+bootRun {
+    systemProperty("spring.profiles.active", "dev")
+    dependsOn tasks.composeUp
+    finalizedBy tasks.composeDown
+}

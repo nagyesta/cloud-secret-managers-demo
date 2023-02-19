@@ -1,0 +1,35 @@
+version: "3"
+
+# Use docker-compose as the working directory while using this file!
+
+services:
+  localstack:
+    container_name: aws-example-localstack
+    image: localstack/localstack:latest
+    ports:
+      - "14566:4566"
+    environment:
+      LAMBDA_DOCKER_NETWORK: 'my-local-aws-network'
+      LAMBDA_REMOTE_DOCKER: 0
+      SERVICES: 'secretsmanager'
+      DEFAULT_REGION: 'us-west-2'
+    volumes:
+      - secrets-import:/docker-entrypoint-initaws.d:ro
+  mysql:
+    container_name: aws-example-mysql
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: e8ce8764-dad6-41de-a2fc-ef905bda44fb
+    ports:
+      - '13306:3306'
+volumes:
+  # Create a volume, allowing us to share the init scripts with Localstack
+  secrets-import:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      # set the current directory as volume root
+      device: "localstack"

@@ -1,0 +1,97 @@
+{
+  "vaults": [
+    {
+      "attributes": {
+        "baseUri": "https://{{host}}:{{port}}",
+        "recoveryLevel": "Recoverable+Purgeable",
+        "recoverableDays": 90,
+        "created": {{now 0}},
+        "deleted": null
+      },
+      "keys": {
+      },
+      "secrets": {
+        "database-connection-url": {
+          "versions": [
+            {
+              "vaultBaseUri": "https://{{host}}:{{port}}",
+              "entityId": "database-connection-url",
+              "entityVersion": "00000000000000000000000000000001",
+              "attributes": {
+                "enabled": true,
+                "created": {{now 0}},
+                "updated": {{now 0}},
+                "recoveryLevel": "Recoverable+Purgeable",
+                "recoverableDays": 90
+              },
+              "tags": {},
+              "managed": false,
+              "value": "jdbc:mysql://localhost:23306/",
+              "contentType": "text/plain"
+            }
+          ]
+        },
+        "database-username": {
+          "versions": [
+            {
+              "vaultBaseUri": "https://{{host}}:{{port}}",
+              "entityId": "database-username",
+              "entityVersion": "00000000000000000000000000000001",
+              "attributes": {
+                "enabled": true,
+                "created": {{now 0}},
+                "updated": {{now 0}},
+                "recoveryLevel": "Recoverable+Purgeable",
+                "recoverableDays": 90
+              },
+              "tags": {},
+              "managed": false,
+              "value": "root",
+              "contentType": "text/plain"
+            }
+          ]
+        },
+        "database-password": {
+          "versions": [
+            {
+              "vaultBaseUri": "https://{{host}}:{{port}}",
+              "entityId": "database-password",
+              "entityVersion": "00000000000000000000000000000001",
+              "attributes": {
+                "enabled": true,
+                "created": {{now 0}},
+                "updated": {{now 0}},
+                "recoveryLevel": "Recoverable+Purgeable",
+                "recoverableDays": 90
+              },
+              "tags": {},
+              "managed": false,
+              "value": "5b8538b6-2bf1-4d38-94f0-308d4fbb757b",
+              "contentType": "text/plain"
+            }
+          ]
+        },
+        "database-driver": {
+          "versions": [
+            {
+              "vaultBaseUri": "https://{{host}}:{{port}}",
+              "entityId": "database-driver",
+              "entityVersion": "00000000000000000000000000000001",
+              "attributes": {
+                "enabled": true,
+                "created": {{now 0}},
+                "updated": {{now 0}},
+                "recoveryLevel": "Recoverable+Purgeable",
+                "recoverableDays": 90
+              },
+              "tags": {},
+              "managed": false,
+              "value": "com.mysql.cj.jdbc.Driver",
+              "contentType": "text/plain"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
