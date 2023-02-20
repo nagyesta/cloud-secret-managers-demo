@@ -16,8 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        module: [ aws, azure ]
+        module: [ baseline, aws, azure ]
         include:
+          - module: baseline
+            name: Baseline
+            directory: baseline-demo
           - module: aws
             name: AWS Secrets Manager
             directory: aws-secrets-manager-demo
