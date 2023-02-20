@@ -1,0 +1,14 @@
+version: "3"
+
+# Use docker-compose as the working directory while using this file!
+
+services:
+  mysql:
+    container_name: baseline-example-mysql
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: fdc778dd-12be-4e05-9504-95c940360c5d
+    ports:
+      - '14306:3306'

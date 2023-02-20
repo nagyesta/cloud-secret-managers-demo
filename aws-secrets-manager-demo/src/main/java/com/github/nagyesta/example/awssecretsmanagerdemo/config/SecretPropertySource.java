@@ -22,7 +22,7 @@ public class SecretPropertySource extends EnumerablePropertySource<Map<String, S
     public SecretPropertySource(SecretAccessProperties properties,
                                 final AWSSecretsManager client,
                                 final ConfigurableEnvironment environment) {
-        super("akv-secrets");
+        super("aws-secrets");
         this.client = client;
         mapping = Map.of(
                 "spring.datasource.driver-class-name", properties.getDriver(),
