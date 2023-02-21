@@ -1,0 +1,41 @@
+version: "3"
+
+# Use docker-compose as the working directory while using this file!
+
+services:
+  vault:
+    container_name: self-hosted-vault-example
+    image: vault
+    ports:
+      - '18201:18201'
+    restart: always
+    cap_add:
+      - IPC_LOCK
+    entrypoint:
+      vault server -dev-kv-v1 -config=/vault/config/vault.hcl
+    volumes:
+      - config-import:/vault/config:ro
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: 00000000-0000-0000-0000-000000000000
+      VAULT_TOKEN: 00000000-0000-0000-0000-000000000000
+  mysql:
+    depends_on:
+      vault:
+        condition: service_started
+    container_name: vault-example-mysql
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 16276ec1-a682-4022-b859-38797969abc6
+    ports:
+      - '15306:3306'
+volumes:
+  # Create a volume, allowing us to share the init scripts with Localstack
+  config-import:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      # set the current directory as volume root
+      device: "vault"
