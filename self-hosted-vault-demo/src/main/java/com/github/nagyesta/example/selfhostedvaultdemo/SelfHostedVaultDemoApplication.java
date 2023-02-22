@@ -3,9 +3,6 @@ package com.github.nagyesta.example.selfhostedvaultdemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @SpringBootApplication

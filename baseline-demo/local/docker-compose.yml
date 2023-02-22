@@ -1,7 +1,5 @@
 version: "3"
 
-# Use docker-compose as the working directory while using this file!
-
 services:
   mysql:
     container_name: baseline-example-mysql
