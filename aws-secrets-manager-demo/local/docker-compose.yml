@@ -1,7 +1,5 @@
 version: "3"
 
-# Use docker-compose as the working directory while using this file!
-
 services:
   localstack:
     container_name: aws-example-localstack
@@ -25,11 +23,9 @@ services:
     ports:
       - '13306:3306'
 volumes:
-  # Create a volume, allowing us to share the init scripts with Localstack
   secrets-import:
     driver: local
     driver_opts:
       type: "none"
       o: "bind"
-      # set the current directory as volume root
       device: "localstack"

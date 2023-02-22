@@ -3,7 +3,6 @@ package com.github.nagyesta.example.awssecretsmanagerdemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

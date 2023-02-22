@@ -2,7 +2,7 @@ package com.github.nagyesta.example.awssecretsmanagerdemo.config.dev;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.secretsmanager.AWSSecretsManager;
 import com.amazonaws.services.secretsmanager.AWSSecretsManagerClientBuilder;
@@ -24,11 +24,13 @@ public class DevClientConfig {
 
     @Bean
     public AWSSecretsManager secretClient() {
-        final AwsClientBuilder.EndpointConfiguration endpointConfiguration =
-                new AwsClientBuilder.EndpointConfiguration(managerUrl, Regions.DEFAULT_REGION.getName());
+        final EndpointConfiguration endpointConfiguration =
+                new EndpointConfiguration(managerUrl, Regions.DEFAULT_REGION.getName());
+        final BasicAWSCredentials credentials =
+                new BasicAWSCredentials(managerAccessKey, managerSecretKey);
         return AWSSecretsManagerClientBuilder.standard()
                 .withEndpointConfiguration(endpointConfiguration)
-                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(managerAccessKey, managerSecretKey)))
+                .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .build();
     }
 

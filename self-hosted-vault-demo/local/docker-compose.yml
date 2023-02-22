@@ -1,7 +1,5 @@
 version: "3"
 
-# Use docker-compose as the working directory while using this file!
-
 services:
   vault:
     container_name: self-hosted-vault-example
@@ -31,11 +29,9 @@ services:
     ports:
       - '15306:3306'
 volumes:
-  # Create a volume, allowing us to share the init scripts with Localstack
   config-import:
     driver: local
     driver_opts:
       type: "none"
       o: "bind"
-      # set the current directory as volume root
       device: "vault"

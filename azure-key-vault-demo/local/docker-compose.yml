@@ -1,7 +1,5 @@
 version: "3"
 
-# Use docker-compose as the working directory while using this file!
-
 services:
   lowkey-vault:
     container_name: akv-example-lowkey-vault
@@ -25,11 +23,9 @@ services:
     ports:
       - '23306:3306'
 volumes:
-  # Create a volume, allowing us to share the backup file with the container by mounting it
   vault-import:
     driver: local
     driver_opts:
       type: "none"
       o: "bind"
-      # set the current directory as volume root
       device: "lowkey-vault/import"
