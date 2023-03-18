@@ -3,6 +3,7 @@ package com.github.nagyesta.example.azurekeyvaultdemo.config.dev;
 import com.azure.core.credential.BasicAuthenticationCredential;
 import com.azure.security.keyvault.secrets.SecretClient;
 import com.azure.security.keyvault.secrets.SecretClientBuilder;
+import com.azure.security.keyvault.secrets.SecretServiceVersion;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +25,7 @@ public class DevClientConfig {
         return new SecretClientBuilder()
                 .credential(new BasicAuthenticationCredential(vaultUser, vaultPass))
                 .vaultUrl(vaultUrl)
+                .serviceVersion(SecretServiceVersion.V7_3)
                 .disableChallengeResourceVerification()
                 .buildClient();
     }
