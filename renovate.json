@@ -14,8 +14,8 @@
   },
   "github-actions": {
     "pinDigests": true
-  }
-  packageRules": [
+  },
+  "packageRules": [
     {
       "matchPackageNames": ["com.amazonaws:aws-java-sdk-secretsmanager"],
       "schedule": ["schedule:monthly"]
