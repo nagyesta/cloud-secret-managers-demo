@@ -3,7 +3,7 @@ version: "3"
 services:
   vault:
     container_name: self-hosted-vault-example
-    image: vault:1.13.3
+    image: hashicorp/vault:1.14.0
     ports:
       - '18201:18201'
     restart: always
