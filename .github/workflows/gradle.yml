@@ -40,8 +40,9 @@ jobs:
         with:
           distribution: temurin
           java-version: 11
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@db19848a5fa7950289d3668fb053140cf3028d43 # v3.3.2
       - name: Build ${{ matrix.name }} project with Gradle
-        uses: gradle/gradle-build-action@4c39dd82cd5e1ec7c6fa0173bb41b4b6bb3b86ff # v3.3.2
-        with:
-          build-root-directory: ${{ matrix.directory }}
-          arguments: bootRun
+        run: |
+          cd ${{ matrix.directory }}
+          ./gradlew bootRun
