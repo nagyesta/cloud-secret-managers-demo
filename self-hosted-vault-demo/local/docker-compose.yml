@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   vault:
     container_name: self-hosted-vault-example
@@ -21,9 +19,8 @@ services:
       vault:
         condition: service_started
     container_name: vault-example-mysql
-    image: mysql:latest
+    image: mysql:8.0.37
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 16276ec1-a682-4022-b859-38797969abc6
     ports:

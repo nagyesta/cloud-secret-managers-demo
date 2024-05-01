@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   localstack:
     container_name: aws-example-localstack
@@ -15,9 +13,8 @@ services:
       - secrets-import:/docker-entrypoint-initaws.d:ro
   mysql:
     container_name: aws-example-mysql
-    image: mysql:latest
+    image: mysql:8.0.37
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: e8ce8764-dad6-41de-a2fc-ef905bda44fb
     ports:

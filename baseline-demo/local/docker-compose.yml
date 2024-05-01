@@ -1,11 +1,8 @@
-version: "3"
-
 services:
   mysql:
     container_name: baseline-example-mysql
-    image: mysql:latest
+    image: mysql:8.0.37
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: fdc778dd-12be-4e05-9504-95c940360c5d
     ports:
