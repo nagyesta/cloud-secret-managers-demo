@@ -1,7 +1,7 @@
 services:
   vault:
     container_name: self-hosted-vault-example
-    image: hashicorp/vault:1.16.3
+    image: hashicorp/vault:1.17.0
     ports:
       - '18201:18201'
     restart: always
