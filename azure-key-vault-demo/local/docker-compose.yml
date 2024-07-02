@@ -13,7 +13,7 @@ services:
         --LOWKEY_IMPORT_LOCATION=/import/keyvault.json.hbs
   mysql:
     container_name: akv-example-mysql
-    image: mysql:8.0.37
+    image: mysql:8.4.1
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: 5b8538b6-2bf1-4d38-94f0-308d4fbb757b
