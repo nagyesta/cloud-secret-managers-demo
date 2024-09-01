@@ -24,7 +24,7 @@ dependencies {
 
 dependencyManagement {
     dependencies {
-        dependency 'com.amazonaws:aws-java-sdk-secretsmanager:1.12.767'
+        dependency 'com.amazonaws:aws-java-sdk-secretsmanager:1.12.770'
         dependency 'org.apache.commons:commons-dbcp2:2.12.0'
         dependency 'com.mysql:mysql-connector-j:9.0.0'
     }
