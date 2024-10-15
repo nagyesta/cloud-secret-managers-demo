@@ -26,7 +26,7 @@ dependencyManagement {
     dependencies {
         dependency 'com.azure:azure-security-keyvault-secrets:4.8.7'
         dependency 'org.apache.commons:commons-dbcp2:2.12.0'
-        dependency 'com.mysql:mysql-connector-j:9.0.0'
+        dependency 'com.mysql:mysql-connector-j:9.1.0'
     }
 }
 
