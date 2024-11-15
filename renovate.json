@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:base",
+    "config:recommended",
     ":gitSignOff"
   ],
   "assignees": [
@@ -9,16 +9,23 @@
   "assigneesSampleSize": 1,
   "separateMajorMinor": true,
   "separateMinorPatch": true,
-  "docker": {
-    "pinDigests": false
-  },
   "github-actions": {
     "pinDigests": true
   },
   "packageRules": [
     {
-      "matchPackageNames": ["com.amazonaws:aws-java-sdk-secretsmanager"],
-      "schedule": ["monthly"]
+      "matchCategories": [
+        "docker"
+      ],
+      "pinDigests": false
+    },
+    {
+      "matchPackageNames": [
+        "com.amazonaws:aws-java-sdk-secretsmanager"
+      ],
+      "schedule": [
+        "monthly"
+      ]
     }
   ]
 }
