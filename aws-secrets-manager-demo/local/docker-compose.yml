@@ -1,7 +1,7 @@
 services:
   localstack:
     container_name: aws-example-localstack
-    image: localstack/localstack:1.4.0
+    image: localstack/localstack:4.0.0
     ports:
       - "14566:4566"
     environment:
