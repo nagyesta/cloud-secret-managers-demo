@@ -26,7 +26,7 @@ dependencyManagement {
     dependencies {
         dependency 'org.springframework.vault:spring-vault-core:2.3.4'
         dependency 'org.apache.commons:commons-dbcp2:2.13.0'
-        dependency 'com.mysql:mysql-connector-j:9.1.0'
+        dependency 'com.mysql:mysql-connector-j:9.2.0'
     }
 }
 
