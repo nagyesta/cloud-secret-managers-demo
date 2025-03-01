@@ -20,6 +20,12 @@
       "pinDigests": false
     },
     {
+      "groupName": "Github Actions",
+      "matchManagers": [
+        "github-actions"
+      ]
+    },
+    {
       "matchPackageNames": [
         "com.amazonaws:aws-java-sdk-secretsmanager"
       ],
