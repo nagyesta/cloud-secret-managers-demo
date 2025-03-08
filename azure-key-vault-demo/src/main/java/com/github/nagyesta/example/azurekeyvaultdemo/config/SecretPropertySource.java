@@ -44,7 +44,7 @@ public class SecretPropertySource extends EnumerablePropertySource<Map<String, S
         if (!Arrays.asList(getPropertyNames()).contains(property)) {
             return null;
         }
-        final String key = mapping.get(property);
+        final var key = mapping.get(property);
         //not using computeIfAbsent to avoid locking map while the value is resolved
         if (!cache.containsKey(key)) {
             cache.put(key, client.getSecret(key).getValue());

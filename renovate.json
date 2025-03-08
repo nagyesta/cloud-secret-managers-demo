@@ -1,7 +1,9 @@
 {
   "extends": [
     "config:recommended",
-    ":gitSignOff"
+    ":gitSignOff",
+    "group:allNonMajor",
+    "schedule:earlyMondays"
   ],
   "assignees": [
     "nagyesta"
@@ -18,20 +20,6 @@
         "docker"
       ],
       "pinDigests": false
-    },
-    {
-      "groupName": "Github Actions",
-      "matchManagers": [
-        "github-actions"
-      ]
-    },
-    {
-      "matchPackageNames": [
-        "com.amazonaws:aws-java-sdk-secretsmanager"
-      ],
-      "schedule": [
-        "monthly"
-      ]
     }
   ]
 }
