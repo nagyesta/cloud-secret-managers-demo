@@ -24,9 +24,9 @@ public class DevClientConfig {
 
     @Bean
     public AWSSecretsManager secretClient() {
-        final EndpointConfiguration endpointConfiguration =
+        final var endpointConfiguration =
                 new EndpointConfiguration(managerUrl, Regions.DEFAULT_REGION.getName());
-        final BasicAWSCredentials credentials =
+        final var credentials =
                 new BasicAWSCredentials(managerAccessKey, managerSecretKey);
         return AWSSecretsManagerClientBuilder.standard()
                 .withEndpointConfiguration(endpointConfiguration)

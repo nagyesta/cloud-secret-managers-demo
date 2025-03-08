@@ -17,20 +17,20 @@ public class DevClientConfig extends AbstractVaultConfiguration {
 
     @Override
     public VaultEndpoint vaultEndpoint() {
-        final String uri = getEnvironment().getRequiredProperty("app.secrets.url");
+        final var uri = getEnvironment().getRequiredProperty("app.secrets.url");
         return VaultEndpoint.from(URI.create(uri));
     }
 
     @Override
     public ClientAuthentication clientAuthentication() {
-        final String token = getEnvironment().getRequiredProperty("app.secrets.token");
+        final var token = getEnvironment().getRequiredProperty("app.secrets.token");
         return new TokenAuthentication(token);
     }
 
     @Override
     public VaultTemplate vaultTemplate() {
-        final VaultTemplate vaultTemplate = super.vaultTemplate();
-        final SecretPropertySource datasourceProperties = new SecretPropertySource();
+        final var vaultTemplate = super.vaultTemplate();
+        final var datasourceProperties = new SecretPropertySource();
         datasourceProperties.setUrl("jdbc:mysql://localhost:15306/");
         datasourceProperties.setDriverClassName("com.mysql.cj.jdbc.Driver");
         datasourceProperties.setUsername("root");
