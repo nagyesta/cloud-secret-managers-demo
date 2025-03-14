@@ -1,4 +1,4 @@
-package com.github.nagyesta.example.awssecretsmanagerdemo;
+package com.github.nagyesta.example.azurekeyvaultdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
